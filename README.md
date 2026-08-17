@@ -31,7 +31,7 @@ around bust signals** — pairing survivors against the shells that are visibly 
 The sleeve is honest that this is a **crowded, borrow-constrained** corner: the short leg lives or
 dies on locate cost and timing, and the base's "you cannot fade the prop" caution applies.
 
-## Research plan (Path A — not yet built)
+## Research plan (Path A)
 
 - **Trust-NAV carry.** Measure the pre-deal discount-to-trust across the SPAC universe and test the
   buy-below-trust, hold-to-redemption carry — return, risk, and capacity, net of the tiny edges.
@@ -44,11 +44,33 @@ dies on locate cost and timing, and the base's "you cannot fade the prop" cautio
   squeeze risk, and how quickly the edge decays. A "real but uninvestable after borrow" verdict is a
   valid, valuable outcome.
 
-Nothing above is implemented or validated. This is the map, not the territory.
+## Research — first pass done
+
+Full detail in [`research/README.md`](research/README.md). The scorecard (Alpaca SIP, 2022–2026;
+surviving names only, so the decay is **understated** — the busts delisted):
+
+| # | Question | Verdict |
+|---|----------|---------|
+| 1 | Is the de-SPAC complex structurally bad? | ✅ confirmed — basket −8.7pp/yr vs SPY, 52% vol, −62% DD; **60% trade below the $10 trust price** |
+| 2 | Can you just short the basket? | ❌ **flagship null** — naive short **−26%/yr, −89% DD**; ASTS +643%, RKLB +429% run it over |
+| 3 | Does shorting only the *broken* subset work? | ❌ null — gross short still bleeds (squeezes); at 5–50% borrow it's **−13% → −58%/yr** |
+| 4 | The pre-deal trust carry? | ⏸️ parked — real near-cash carry (~3.9%/yr floor) but the edge needs SPAC-level data, not daily bars |
+
+**The synthesis:** the thesis is *confirmed* — the de-SPAC complex is genuinely bad (and worse than
+shown, since the busts delisted) — but **every route to monetize it is closed.** You cannot short the
+basket (the right tail, ASTS/RKLB/HIMS, hands it a −89% drawdown); you cannot cleanly short even the
+broken sub-$10 subset (dead-cat/meme squeezes like OPEN's 2025 rip, then borrow of 20–100%+ buries
+it — the base's *"you cannot fade the prop"* law in its purest form); and the one structurally sound
+trade, the pre-deal **trust carry** (T-bills + a redemption floor + a free option), needs per-SPAC
+trust NAV and redemption dates that don't live on daily bars, so it is parked. Blank joins
+[Bubble](https://github.com/blaquebaux/bubble) and
+[Brute-Force](https://github.com/blaquebaux/brute-force) on the honest shelf: **a real market
+pathology that resists being traded.** A risk map, not a sleeve.
 
 ## Status
-**Concept.** Thesis and research plan only — no sketches run, no driver, nothing validated to the
-spine's bar. A structural long/short idea whose honest test is dominated by borrow cost and crowding.
+**Research: first pass complete — a diagnostic null** (`research/`). The de-SPAC decay is real but
+untradeable (short run over by the tail, then buried by borrow); the sound trust carry needs data
+beyond daily bars and is parked. No keeper, no live driver; nothing validated to the spine's bar.
 
 ## About Blaque Baux
 
@@ -70,7 +92,7 @@ base/blueprint and holds the [full family roster](https://github.com/blaquebaux/
 ## Layout
 ```
 engine/     the Blaque Baux platform (git submodule -> blaquebaux/base)
-research/   the research plan (Path A) — sketches land here once run
+research/   four Path-A sketches (decay, short-danger, short-net-borrow, trust-carry) + scorecard
 live/       governed live drivers (once a sleeve graduates to paper A/B)
 ```
 
